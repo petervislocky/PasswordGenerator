@@ -6,7 +6,9 @@ public class passwdGenMain {
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		passwdGen passGen = new passwdGen(scanner);
+		scanner.useDelimiter("\\R");
+		new passwdGen(scanner);
+		scanner.close();
 	}
 
 }

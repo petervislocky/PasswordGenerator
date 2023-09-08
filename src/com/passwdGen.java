@@ -48,7 +48,7 @@ public class passwdGen {
 					else if (upperCase_Included.equalsIgnoreCase("n")) {
 						upperLetters = false;
 					} else {
-						System.out.println("Invalid input given for upper case letters. Returning true");
+						System.out.println("Invalid input given for upper case letters. Defualting to yes");
 						upperLetters = true;
 					}
 					
@@ -58,7 +58,7 @@ public class passwdGen {
 					else if (lowerCase_Included.equalsIgnoreCase("n")) {
 						lowerLetters = false;
 					} else {
-						System.out.println("Invalid input given for lower case letters. Returning true");
+						System.out.println("Invalid input given for lower case letters. Defualting to yes");
 						lowerLetters = true;
 					}
 					
@@ -68,7 +68,7 @@ public class passwdGen {
 					else if (nums_Included.equalsIgnoreCase("n")) {
 						nums = false;
 					} else {
-						System.out.println("Invalid input given for numbers. Returning true");
+						System.out.println("Invalid input given for numbers. Defualting to yes");
 						nums = false;
 					}
 					
@@ -78,7 +78,7 @@ public class passwdGen {
 					else if (symbols_Included.equalsIgnoreCase("n")) {
 						symbols = false;
 					} else {
-						System.out.println("Invalid input given for symbols. Returning true");
+						System.out.println("Invalid input given for symbols. Defualting to yes");
 						symbols = true;
 					}
 				}
@@ -87,9 +87,12 @@ public class passwdGen {
 					continue;
 				}
 				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
-				//add in if statement to prevent an empty string printed when the user says no to all prompts
-				System.out.println("Generated Password: " + password);
-				runagain = runAgain();
+				if (password.isEmpty()) {
+					runagain = runAgain();
+				} else {
+					System.out.println("Generated Password: " + password);
+					runagain = runAgain();
+				}
 			}
 	}
 	
