@@ -11,8 +11,6 @@ public class passwdGen {
 	private final String numsKey = "1234567890";
 	private final String symbolsKey = "!@#$%^&*?";
 	
-	private boolean runagain = true;
-	
 	private Scanner input;
 	
 	public passwdGen(Scanner scanner) {
@@ -21,6 +19,7 @@ public class passwdGen {
 	}
 	
 	public void mainloop() {
+		boolean runagain = true;
 		boolean upperLetters = true;
 		boolean lowerLetters = true;
 		boolean nums = true;
