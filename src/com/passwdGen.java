@@ -29,62 +29,57 @@ public class passwdGen {
 				System.out.println("Password Generator");
 				
 				int length = returnLength();
-				try {
-					System.out.print("Upper case letters included (y/n): ");
-					String upperCase_Included = input.nextLine();
+				System.out.print("Upper case letters included (y/n): ");
+				String upperCase_Included = input.nextLine();
 					
-					System.out.print("Lower case letters included (y/n): ");
-					String lowerCase_Included = input.nextLine();
+				System.out.print("Lower case letters included (y/n): ");
+				String lowerCase_Included = input.nextLine();
 					
-					System.out.print("Numbers included (y/n): ");
-					String nums_Included = input.nextLine();
+				System.out.print("Numbers included (y/n): ");
+				String nums_Included = input.nextLine();
 					
-					System.out.print("Symbols included (y/n): ");
-					String symbols_Included = input.nextLine();
-					if (upperCase_Included.equalsIgnoreCase("y")) {
-						upperLetters = true;
-					}
-					else if (upperCase_Included.equalsIgnoreCase("n")) {
-						upperLetters = false;
-					} else {
-						System.out.println("Invalid input given for upper case letters. Defualting to yes");
-						upperLetters = true;
-					}
-					
-					if (lowerCase_Included.equalsIgnoreCase("y")) {
-						lowerLetters = true;
-					}
-					else if (lowerCase_Included.equalsIgnoreCase("n")) {
-						lowerLetters = false;
-					} else {
-						System.out.println("Invalid input given for lower case letters. Defualting to yes");
-						lowerLetters = true;
-					}
-					
-					if (nums_Included.equalsIgnoreCase("y")) {
-						nums = true;
-					}
-					else if (nums_Included.equalsIgnoreCase("n")) {
-						nums = false;
-					} else {
-						System.out.println("Invalid input given for numbers. Defualting to yes");
-						nums = false;
-					}
-					
-					if (symbols_Included.equalsIgnoreCase("y")) {
-						symbols = true;
-					}
-					else if (symbols_Included.equalsIgnoreCase("n")) {
-						symbols = false;
-					} else {
-						System.out.println("Invalid input given for symbols. Defualting to yes");
-						symbols = true;
-					}
+				System.out.print("Symbols included (y/n): ");
+				String symbols_Included = input.nextLine();
+				if (upperCase_Included.equalsIgnoreCase("y")) {
+					upperLetters = true;
 				}
-				catch (InputMismatchException e) {
-					System.out.println("Invalid input\nError code: " + e);
-					continue;
+				else if (upperCase_Included.equalsIgnoreCase("n")) {
+					upperLetters = false;
+				} else {
+					System.out.println("Invalid input given for upper case letters. Defualting to yes");
+					upperLetters = true;
 				}
+					
+				if (lowerCase_Included.equalsIgnoreCase("y")) {
+					lowerLetters = true;
+				}
+				else if (lowerCase_Included.equalsIgnoreCase("n")) {
+					lowerLetters = false;
+				} else {
+					System.out.println("Invalid input given for lower case letters. Defualting to yes");
+					lowerLetters = true;
+				}
+					
+				if (nums_Included.equalsIgnoreCase("y")) {
+					nums = true;
+				}
+				else if (nums_Included.equalsIgnoreCase("n")) {
+					nums = false;
+				} else {
+					System.out.println("Invalid input given for numbers. Defualting to yes");
+					nums = false;
+				}
+					
+				if (symbols_Included.equalsIgnoreCase("y")) {
+					symbols = true;
+				}
+				else if (symbols_Included.equalsIgnoreCase("n")) {
+					symbols = false;
+				} else {
+					System.out.println("Invalid input given for symbols. Defualting to yes");
+					symbols = true;
+				}				
+				
 				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
 				if (password.isEmpty()) {
 					runagain = runAgain();
