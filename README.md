@@ -4,5 +4,5 @@ passwords down somewhere or adding them to your password manager, because your p
 
 #To run
 Clone git repository or copy src folder however you see fit.
-In powershell run **javac com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java** 
-Then run **java com.passwdGenMain**
+In powershell run **javac com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**. 
+Then run **java com.passwdGenMain**.
