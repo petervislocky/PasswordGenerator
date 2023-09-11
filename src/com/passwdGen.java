@@ -1,6 +1,5 @@
 package com;
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,6 +19,7 @@ public class passwdGen {
 	
 	public void mainloop() {
 		boolean runagain = true;
+		boolean copyToClip = true;
 		boolean upperLetters = true;
 		boolean lowerLetters = true;
 		boolean nums = true;
@@ -86,6 +86,7 @@ public class passwdGen {
 					runagain = UIHand.runAgain();
 				} else {
 					System.out.println("Generated Password: " + password);
+//					add copy to clipboard method and option here
 					runagain = UIHand.runAgain();
 				}
 			}

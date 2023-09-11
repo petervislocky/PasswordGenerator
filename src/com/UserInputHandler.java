@@ -1,5 +1,8 @@
 package com;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -57,5 +60,11 @@ public class UserInputHandler {
 				}
 		}
 		return length;
+	}
+	
+	public void copyToClipboard(String passwd) {
+		StringSelection selection = new StringSelection(passwd);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(selection, selection);
 	}
 }
