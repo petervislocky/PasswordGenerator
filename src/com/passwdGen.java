@@ -28,7 +28,8 @@ public class passwdGen {
 			while (runagain) {
 				System.out.println("Password Generator");
 				
-				int length = returnLength();
+				UserInputHandler UIHand = new UserInputHandler(input);
+				int length = UIHand.returnLength();
 				System.out.print("Upper case letters included (y/n): ");
 				String upperCase_Included = input.nextLine();
 					
@@ -82,10 +83,10 @@ public class passwdGen {
 				
 				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
 				if (password.isEmpty()) {
-					runagain = runAgain();
+					runagain = UIHand.runAgain();
 				} else {
 					System.out.println("Generated Password: " + password);
-					runagain = runAgain();
+					runagain = UIHand.runAgain();
 				}
 			}
 	}
@@ -121,54 +122,6 @@ public class passwdGen {
 		}
 		
 		return generatedPassword.toString();
-	}
-	
-	public boolean runAgain() {
-		boolean RAloop = true;
-		boolean runAgain_returnValue = true;
-		while (RAloop) {
-			System.out.print("Run again? (y/n): ");
-			String again = input.nextLine();
-			if (again.equalsIgnoreCase("y")) {
-				RAloop = false;
-				runAgain_returnValue = true;
-			}
-			else if (again.equalsIgnoreCase("n")) {
-				RAloop = false;
-				runAgain_returnValue = false;
-			} else {
-				System.out.println("Invalid input");
-				
-			}
-		}
-		return runAgain_returnValue;
-	}
-	
-	public int returnLength() {
-		int length = 0;
-		boolean lengthLoop = true;
-		while (lengthLoop) {
-				System.out.print("Desired length (Min 1, Max 99): ");
-				try {
-					length = input.nextInt();
-					input.nextLine();
-					if (length > 99) {
-						System.out.println("Maximum length is 99");
-					}
-					else if (length < 1) {
-						System.out.println("Minimum length is 1");
-					} else {
-						lengthLoop = false;
-						return length;
-					}
-					
-				} 
-				catch (InputMismatchException e) {
-					System.out.println("Invalid input. You either entered invalid characters or a number too large\nRemember the minimum length is 1, maximum is 99");
-					input.next();
-				}
-		}
-		return length;
 	}
 }
 
