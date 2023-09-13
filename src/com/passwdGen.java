@@ -86,7 +86,22 @@ public class passwdGen {
 					runagain = UIHand.runAgain();
 				} else {
 					System.out.println("Generated Password: " + password);
-//					add copy to clipboard method and option here
+/* for some reason you cannot have an else or else if clause following an if statement that executes the copy
+ * method. figure that out
+					while(copyToClip) {
+						System.out.print("Copy password to clipboard? (y/n): ");
+						String copy = input.nextLine();
+						if (copy.equalsIgnoreCase("y"));{
+							UIHand.copyToClipboard(password);
+							copyToClip = false;
+						}
+						else if (copy.equalsIgnoreCase("n")) {
+							break;
+						} else {
+							System.out.println("Invalid input ");
+							continue;
+						}*/
+					}
 					runagain = UIHand.runAgain();
 				}
 			}
