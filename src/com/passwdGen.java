@@ -16,7 +16,10 @@ public class passwdGen {
 		this.input = scanner;
 		mainloop();
 	}
-	
+	/* 
+	 * Author: 
+	 * Peter Vislocky
+	 */
 	public void mainloop() {
 		boolean runagain = true;
 		boolean upperLetters = true;
