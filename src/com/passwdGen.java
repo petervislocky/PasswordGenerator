@@ -1,6 +1,6 @@
 package com;
 
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class passwdGen {
@@ -109,7 +109,7 @@ public class passwdGen {
 	
 	public String generator(int length, boolean upperLetters, boolean lowerLetters, boolean nums, boolean symbols) {
 		
-		Random random = new Random();
+		SecureRandom random = new SecureRandom();
 		StringBuilder password = new StringBuilder();
 		
 		if (upperLetters) {
