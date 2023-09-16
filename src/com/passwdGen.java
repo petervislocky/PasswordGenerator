@@ -51,7 +51,7 @@ public class passwdGen {
 				else if (upperCase_Included.equalsIgnoreCase("n")) {
 					upperLetters = false;
 				} else {
-					System.out.println("Invalid input given for upper case letters. Defualting to yes");
+					System.out.println("Invalid input given for upper case letters. Defaulting to yes");
 					upperLetters = true;
 				}
 					
@@ -61,7 +61,7 @@ public class passwdGen {
 				else if (lowerCase_Included.equalsIgnoreCase("n")) {
 					lowerLetters = false;
 				} else {
-					System.out.println("Invalid input given for lower case letters. Defualting to yes");
+					System.out.println("Invalid input given for lower case letters. Defaulting to yes");
 					lowerLetters = true;
 				}
 					
@@ -71,7 +71,7 @@ public class passwdGen {
 				else if (nums_Included.equalsIgnoreCase("n")) {
 					nums = false;
 				} else {
-					System.out.println("Invalid input given for numbers. Defualting to yes");
+					System.out.println("Invalid input given for numbers. Defaulting to yes");
 					nums = false;
 				}
 					
@@ -81,7 +81,7 @@ public class passwdGen {
 				else if (symbols_Included.equalsIgnoreCase("n")) {
 					symbols = false;
 				} else {
-					System.out.println("Invalid input given for symbols. Defualting to yes");
+					System.out.println("Invalid input given for symbols. Defaulting to yes");
 					symbols = true;
 				}				
 				
