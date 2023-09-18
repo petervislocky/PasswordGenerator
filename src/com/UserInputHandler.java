@@ -13,9 +13,7 @@ public class UserInputHandler {
 	public UserInputHandler(Scanner scanner) {
 		this.input = scanner;
 	}
-   /*simple method that returns a boolean that is fed into the while loop in the mainloop() method to determine if the loop should continue or not.
-	*has a while loop within it just so it asks the user again if given invalid input
-	*/
+
 	public boolean runAgain() {
 		boolean RAloop = true;
 		boolean runAgain_returnValue = true;

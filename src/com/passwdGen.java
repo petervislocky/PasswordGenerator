@@ -36,7 +36,6 @@ public class passwdGen {
 		boolean symbols = true;
 		
 			while (runagain) {
-				//copyToclip is just for the while loop at the bottom of this method that copies to clipboard
 				boolean copyToClip = true;
 				
 				System.out.println("Password Generator\nBe aware, improper input for any of the prompts about including different characters, will default to yes.\nNone of the inputs are case sensitive.");
