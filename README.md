@@ -5,5 +5,5 @@ passwords down somewhere or adding them to your password manager, because your p
 To run,
 You must have java installed (Version: Java SE17). As of right now you need to compile the code from source yourself.
 Clone git repository or copy src folder however you see fit.
-In powershell run **javac com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**. 
+In powershell navigate to the directory you installed the project to and run **javac com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**. 
 Then run **java com.passwdGenMain**.
