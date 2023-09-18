@@ -13,7 +13,9 @@ public class UserInputHandler {
 	public UserInputHandler(Scanner scanner) {
 		this.input = scanner;
 	}
-	
+   /*simple method that returns a boolean that is fed into the while loop in the mainloop() method to determine if the loop should continue or not.
+	*has a while loop within it just so it asks the user again if given invalid input
+	*/
 	public boolean runAgain() {
 		boolean RAloop = true;
 		boolean runAgain_returnValue = true;
@@ -34,7 +36,7 @@ public class UserInputHandler {
 		}
 		return runAgain_returnValue;
 	}
-	
+	//This method is for the user to set the length of the password, the value returned is then fed into the generator method in the mainloop() method.
 	public int returnLength() {
 		int length = 0;
 		boolean lengthLoop = true;
@@ -61,7 +63,7 @@ public class UserInputHandler {
 		}
 		return length;
 	}
-	
+	//copies the password generated to clipboard
 	public void copyToClipboard(String passwd) {
 		try {
 			StringSelection selection = new StringSelection(passwd);

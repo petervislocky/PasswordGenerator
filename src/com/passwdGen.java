@@ -12,14 +12,22 @@ public class passwdGen {
 	
 	private Scanner input;
 	
-	public passwdGen(Scanner scanner) {
-		this.input = scanner;
-		mainloop();
-	}
 	/* 
 	 * Author: 
 	 * Peter Vislocky
 	 */
+	
+	/*
+	 * The main class of the program, handles all aspects of generating the password. Mainloop() method handles the main user interaction of the program
+	 * TODO further encapsulate mainloop()
+	 * TODO create a menu method listing all different options for user and calling a different method depending on what the user selects
+	 * TODO Implement a settings method to the menu that allows the user to choose what characters they want and then save the results to a .properties file. Then have the passwdGenerator() method pull its parameters from the .properties file.
+	 */
+	
+	public passwdGen(Scanner scanner) {
+		this.input = scanner;
+		mainloop();
+	}
 	public void mainloop() {
 		boolean runagain = true;
 		boolean upperLetters = true;
@@ -28,6 +36,7 @@ public class passwdGen {
 		boolean symbols = true;
 		
 			while (runagain) {
+				//copyToclip is just for the while loop at the bottom of this method that copies to clipboard
 				boolean copyToClip = true;
 				
 				System.out.println("Password Generator\nBe aware, improper input for any of the prompts about including different characters, will default to yes.\nNone of the inputs are case sensitive.");
@@ -111,6 +120,13 @@ public class passwdGen {
 			}
 	}
 	
+	/*generates the password using the SecureRandom class and the StringBuilder class. Randomly selects an index from the character strings defined up top.
+	 *@param length 	  The desired length of the password
+	 *@param upperLetters Whether to include upper case letters
+	 *@param lowerLetters Whether to include lower case letters
+	 *@param nums 		  Whether to include numbers
+	 *@param symbols	  Whether to include symbols
+	 */
 	public String generator(int length, boolean upperLetters, boolean lowerLetters, boolean nums, boolean symbols) {
 		
 		SecureRandom random = new SecureRandom();
