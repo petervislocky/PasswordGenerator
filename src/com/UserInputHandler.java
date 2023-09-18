@@ -63,8 +63,14 @@ public class UserInputHandler {
 	}
 	
 	public void copyToClipboard(String passwd) {
-		StringSelection selection = new StringSelection(passwd);
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(selection, selection);
+		try {
+			StringSelection selection = new StringSelection(passwd);
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clipboard.setContents(selection, selection);
+			System.out.println("Password succesfully copied to clipboard.");
+		}
+		catch (Exception e) {
+			System.out.printf("Copy to clipboard failed. Error code %s%n", e);
+		}
 	}
 }

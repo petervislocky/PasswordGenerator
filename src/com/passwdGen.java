@@ -30,21 +30,13 @@ public class passwdGen {
 			while (runagain) {
 				boolean copyToClip = true;
 				
-				System.out.println("Password Generator");
+				System.out.println("Password Generator\nBe aware, improper input for any of the prompts about including different characters, will default to yes.\nNone of the inputs are case sensitive.");
 				
 				UserInputHandler UIHand = new UserInputHandler(input);
 				int length = UIHand.returnLength();
 				System.out.print("Upper case letters included (y/n): ");
 				String upperCase_Included = input.nextLine();
-					
-				System.out.print("Lower case letters included (y/n): ");
-				String lowerCase_Included = input.nextLine();
-					
-				System.out.print("Numbers included (y/n): ");
-				String nums_Included = input.nextLine();
-					
-				System.out.print("Symbols included (y/n): ");
-				String symbols_Included = input.nextLine();
+				
 				if (upperCase_Included.equalsIgnoreCase("y")) {
 					upperLetters = true;
 				}
@@ -55,6 +47,9 @@ public class passwdGen {
 					upperLetters = true;
 				}
 					
+				System.out.print("Lower case letters included (y/n): ");
+				String lowerCase_Included = input.nextLine();
+				
 				if (lowerCase_Included.equalsIgnoreCase("y")) {
 					lowerLetters = true;
 				}
@@ -65,6 +60,9 @@ public class passwdGen {
 					lowerLetters = true;
 				}
 					
+				System.out.print("Numbers included (y/n): ");
+				String nums_Included = input.nextLine();
+				
 				if (nums_Included.equalsIgnoreCase("y")) {
 					nums = true;
 				}
@@ -74,6 +72,9 @@ public class passwdGen {
 					System.out.println("Invalid input given for numbers. Defaulting to yes");
 					nums = false;
 				}
+					
+				System.out.print("Symbols included (y/n): ");
+				String symbols_Included = input.nextLine();	
 					
 				if (symbols_Included.equalsIgnoreCase("y")) {
 					symbols = true;
@@ -101,7 +102,7 @@ public class passwdGen {
 						else if (copy.equalsIgnoreCase("n")) {
 							break;
 						} else {
-							System.out.println("Invalid input ");
+							System.out.println("Invalid input. Correct input: (y/n)");
 							continue;
 						}
 					}
