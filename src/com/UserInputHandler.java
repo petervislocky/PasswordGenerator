@@ -63,7 +63,7 @@ public class UserInputHandler {
 	}
 	/*Decreased repetitive code with this method, serves as a barebones prompt for the different character selections.
 	 * @param prompt	The insert where you can add the different character prompts.
-	 * @return		    returns users choice
+	 * @return		    Returns users choice
 	 */
 	public boolean getCharChoice(String prompt) {
 		boolean result;
@@ -81,7 +81,9 @@ public class UserInputHandler {
 		return result;
 	}
 	
-	//copies the password generated to clipboard
+	/*copies the password generated to clipboard
+	 * @param passwd	String to be copied to clipboard
+	 */
 	public void copyToClipboard(String passwd) {
 		try {
 			StringSelection selection = new StringSelection(passwd);
