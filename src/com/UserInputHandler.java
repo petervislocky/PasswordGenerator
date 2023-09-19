@@ -34,7 +34,7 @@ public class UserInputHandler {
 		}
 		return runAgain_returnValue;
 	}
-	//This method is for the user to set the length of the password, the value returned is then fed into the generator method in the mainloop() method.
+	
 	public int returnLength() {
 		int length = 0;
 		boolean lengthLoop = true;
@@ -61,74 +61,24 @@ public class UserInputHandler {
 		}
 		return length;
 	}
-	
-	public boolean upperLetters() {
-		boolean upperLetters;
-		System.out.print("Upper case letters included (y/n): ");
-		String upperCase_Included = input.nextLine();
-		
-		if (upperCase_Included.equalsIgnoreCase("y")) {
-			upperLetters = true;
+	/*Decreased repetitive code with this method, serves as a barebones prompt for the different character selections.
+	 * @param prompt	The insert where you can add the different character prompts.
+	 * @return		    returns users choice
+	 */
+	public boolean getCharChoice(String prompt) {
+		boolean result;
+		System.out.print(prompt + "(y/n): ");
+		String userChoice = input.nextLine();
+		if (userChoice.equalsIgnoreCase("y")) {
+			result = true;
 		}
-		else if (upperCase_Included.equalsIgnoreCase("n")) {
-			upperLetters = false;
+		else if (userChoice.equalsIgnoreCase("n")) {
+			result = false;
 		} else {
-			System.out.println("Invalid input given for upper case letters. Defaulting to yes");
-			upperLetters = true;
+			result = true;
+			System.out.println("Invalid input. Defaulting to yes.");
 		}
-		return upperLetters;
-	}
-	
-	public boolean lowerLetters() {
-		boolean lowerLetters;
-		System.out.print("Lower case letters included (y/n): ");
-		String lowerCase_Included = input.nextLine();
-		
-		if (lowerCase_Included.equalsIgnoreCase("y")) {
-			lowerLetters = true;
-		}
-		else if (lowerCase_Included.equalsIgnoreCase("n")) {
-			lowerLetters = false;
-		} else {
-			System.out.println("Invalid input given for lower case letters. Defaulting to yes");
-			lowerLetters = true;
-		}
-		return lowerLetters;
-	}
-	
-	public boolean nums() {
-		boolean nums;
-		
-		System.out.print("Numbers included (y/n): ");
-		String nums_Included = input.nextLine();
-		
-		if (nums_Included.equalsIgnoreCase("y")) {
-			nums = true;
-		}
-		else if (nums_Included.equalsIgnoreCase("n")) {
-			nums = false;
-		} else {
-			System.out.println("Invalid input given for numbers. Defaulting to yes");
-			nums = false;
-		}
-		return nums;
-	}
-	
-	public boolean symbols() {
-		boolean symbols;
-		System.out.print("Symbols included (y/n): ");
-		String symbols_Included = input.nextLine();	
-			
-		if (symbols_Included.equalsIgnoreCase("y")) {
-			symbols = true;
-		}
-		else if (symbols_Included.equalsIgnoreCase("n")) {
-			symbols = false;
-		} else {
-			System.out.println("Invalid input given for symbols. Defaulting to yes");
-			symbols = true;
-		}
-		return symbols;
+		return result;
 	}
 	
 	//copies the password generated to clipboard

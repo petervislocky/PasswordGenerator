@@ -38,19 +38,20 @@ public class passwdGen {
 			while (runagain) {
 				boolean copyToClip = true;
 				
-				System.out.println("Password Generator\nBe aware, improper input for any of the prompts about including different characters, will default to yes.\nNone of the inputs are case sensitive.");
+				System.out.println("Password Generator\nBe aware, improper input for any of the prompts asking what characters you want included will default to yes.\nNone of the inputs are case sensitive.");
 				
 				UserInputHandler UIHand = new UserInputHandler(input);
 				int length = UIHand.returnLength();
-				upperLetters = UIHand.upperLetters();
-				lowerLetters = UIHand.lowerLetters();
-				nums = UIHand.nums();
-				symbols = UIHand.symbols();
+				upperLetters = UIHand.getCharChoice("Upper case letters included? ");
+				lowerLetters = UIHand.getCharChoice("Lower letters included? ");
+				nums = UIHand.getCharChoice("Numbers included? ");
+				symbols = UIHand.getCharChoice("Symbols included? ");
+				
 				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
 				if (password.isEmpty()) {
 					runagain = UIHand.runAgain();
 				} else {
-					System.out.println("Generated Password: " + password);
+					System.out.println("\u001B[92mGenerated Password: " + password + "\u001B[0m");
 
 					while(copyToClip) {
 						System.out.print("Copy password to clipboard? (y/n): ");
@@ -77,6 +78,7 @@ public class passwdGen {
 	 *@param lowerLetters Whether to include lower case letters
 	 *@param nums 		  Whether to include numbers
 	 *@param symbols	  Whether to include symbols
+	 *@return 			  Randomly generated string
 	 */
 	public String generator(int length, boolean upperLetters, boolean lowerLetters, boolean nums, boolean symbols) {
 		
