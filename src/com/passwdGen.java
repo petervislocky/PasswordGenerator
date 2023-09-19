@@ -30,10 +30,10 @@ public class passwdGen {
 	}
 	public void mainloop() {
 		boolean runagain = true;
-		boolean upperLetters = true;
-		boolean lowerLetters = true;
-		boolean nums = true;
-		boolean symbols = true;
+		boolean upperLetters;
+		boolean lowerLetters;
+		boolean nums;
+		boolean symbols;
 		
 			while (runagain) {
 				boolean copyToClip = true;
@@ -42,58 +42,10 @@ public class passwdGen {
 				
 				UserInputHandler UIHand = new UserInputHandler(input);
 				int length = UIHand.returnLength();
-				System.out.print("Upper case letters included (y/n): ");
-				String upperCase_Included = input.nextLine();
-				
-				if (upperCase_Included.equalsIgnoreCase("y")) {
-					upperLetters = true;
-				}
-				else if (upperCase_Included.equalsIgnoreCase("n")) {
-					upperLetters = false;
-				} else {
-					System.out.println("Invalid input given for upper case letters. Defaulting to yes");
-					upperLetters = true;
-				}
-					
-				System.out.print("Lower case letters included (y/n): ");
-				String lowerCase_Included = input.nextLine();
-				
-				if (lowerCase_Included.equalsIgnoreCase("y")) {
-					lowerLetters = true;
-				}
-				else if (lowerCase_Included.equalsIgnoreCase("n")) {
-					lowerLetters = false;
-				} else {
-					System.out.println("Invalid input given for lower case letters. Defaulting to yes");
-					lowerLetters = true;
-				}
-					
-				System.out.print("Numbers included (y/n): ");
-				String nums_Included = input.nextLine();
-				
-				if (nums_Included.equalsIgnoreCase("y")) {
-					nums = true;
-				}
-				else if (nums_Included.equalsIgnoreCase("n")) {
-					nums = false;
-				} else {
-					System.out.println("Invalid input given for numbers. Defaulting to yes");
-					nums = false;
-				}
-					
-				System.out.print("Symbols included (y/n): ");
-				String symbols_Included = input.nextLine();	
-					
-				if (symbols_Included.equalsIgnoreCase("y")) {
-					symbols = true;
-				}
-				else if (symbols_Included.equalsIgnoreCase("n")) {
-					symbols = false;
-				} else {
-					System.out.println("Invalid input given for symbols. Defaulting to yes");
-					symbols = true;
-				}				
-				
+				upperLetters = UIHand.upperLetters();
+				lowerLetters = UIHand.lowerLetters();
+				nums = UIHand.nums();
+				symbols = UIHand.symbols();
 				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
 				if (password.isEmpty()) {
 					runagain = UIHand.runAgain();

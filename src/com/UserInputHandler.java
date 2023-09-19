@@ -55,12 +55,82 @@ public class UserInputHandler {
 					
 				} 
 				catch (InputMismatchException e) {
-					System.out.println("Invalid input. You either entered invalid characters or a number too large\nRemember the minimum length is 1, maximum is 99");
+					System.out.printf("Invalid input. You either entered invalid characters or a number too large\nRemember the minimum length is 1, maximum is 99\nError code: %s%n", e);
 					input.next();
 				}
 		}
 		return length;
 	}
+	
+	public boolean upperLetters() {
+		boolean upperLetters;
+		System.out.print("Upper case letters included (y/n): ");
+		String upperCase_Included = input.nextLine();
+		
+		if (upperCase_Included.equalsIgnoreCase("y")) {
+			upperLetters = true;
+		}
+		else if (upperCase_Included.equalsIgnoreCase("n")) {
+			upperLetters = false;
+		} else {
+			System.out.println("Invalid input given for upper case letters. Defaulting to yes");
+			upperLetters = true;
+		}
+		return upperLetters;
+	}
+	
+	public boolean lowerLetters() {
+		boolean lowerLetters;
+		System.out.print("Lower case letters included (y/n): ");
+		String lowerCase_Included = input.nextLine();
+		
+		if (lowerCase_Included.equalsIgnoreCase("y")) {
+			lowerLetters = true;
+		}
+		else if (lowerCase_Included.equalsIgnoreCase("n")) {
+			lowerLetters = false;
+		} else {
+			System.out.println("Invalid input given for lower case letters. Defaulting to yes");
+			lowerLetters = true;
+		}
+		return lowerLetters;
+	}
+	
+	public boolean nums() {
+		boolean nums;
+		
+		System.out.print("Numbers included (y/n): ");
+		String nums_Included = input.nextLine();
+		
+		if (nums_Included.equalsIgnoreCase("y")) {
+			nums = true;
+		}
+		else if (nums_Included.equalsIgnoreCase("n")) {
+			nums = false;
+		} else {
+			System.out.println("Invalid input given for numbers. Defaulting to yes");
+			nums = false;
+		}
+		return nums;
+	}
+	
+	public boolean symbols() {
+		boolean symbols;
+		System.out.print("Symbols included (y/n): ");
+		String symbols_Included = input.nextLine();	
+			
+		if (symbols_Included.equalsIgnoreCase("y")) {
+			symbols = true;
+		}
+		else if (symbols_Included.equalsIgnoreCase("n")) {
+			symbols = false;
+		} else {
+			System.out.println("Invalid input given for symbols. Defaulting to yes");
+			symbols = true;
+		}
+		return symbols;
+	}
+	
 	//copies the password generated to clipboard
 	public void copyToClipboard(String passwd) {
 		try {
