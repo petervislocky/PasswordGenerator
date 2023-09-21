@@ -19,7 +19,6 @@ public class passwdGen {
 	
 	/*
 	 * The main class of the program, handles all aspects of generating the password. Mainloop() method handles the main user interaction of the program
-	 * TODO further encapsulate mainloop()
 	 * TODO create a menu method listing all different options for user and calling a different method depending on what the user selects
 	 * TODO Implement a settings method to the menu that allows the user to choose what characters they want and then save the results to a .properties file. Then have the passwdGenerator() method pull its parameters from the .properties file.
 	 */
