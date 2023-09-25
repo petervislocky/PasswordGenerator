@@ -21,6 +21,7 @@ public class passwdGen {
 	 * The main class of the program, handles all aspects of generating the password. Mainloop() method handles the main user interaction of the program
 	 * TODO create a menu method listing all different options for user and calling a different method depending on what the user selects
 	 * TODO Implement a settings method to the menu that allows the user to choose what characters they want and then save the results to a .properties file. Then have the passwdGenerator() method pull its parameters from the .properties file.
+	 * TODO add in multi-language support, look for a translator API
 	 */
 	
 	public passwdGen(Scanner scanner) {
@@ -69,6 +70,16 @@ public class passwdGen {
 					runagain = UIHand.runAgain();
 				}
 			}
+	}
+	
+	public void menu() {
+		System.out.print("Choose an option by inputting the corresponding number\n1 Password Generator \n2Settings \n3 Useful Information \n4 Instructions for Use \n5 Exit");
+		int menuChoice = input.nextInt();
+		input.nextLine();
+//		switch (menuChoice) {
+//		case 1: 
+			
+		}
 	}
 	
 	/*generates the password using the SecureRandom class and the StringBuilder class. Randomly selects an index from the character strings defined up top.
