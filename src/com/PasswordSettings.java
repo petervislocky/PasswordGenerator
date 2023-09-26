@@ -56,6 +56,7 @@ public class PasswordSettings {
 		}
 	}
 	
+	//sets default properties if no properties exist/the .properties file doesn't exist
 	public void setDefaultProperties() {
 		properties.setProperty("upperLetters", "true");
 		properties.setProperty("lowerLetters", "true");
