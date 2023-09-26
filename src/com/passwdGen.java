@@ -20,7 +20,6 @@ public class passwdGen {
 	/*
 	 * The main class of the program, handles all aspects of generating the password. Mainloop() method handles the main user interaction of the program
 	 * TODO create a menu method listing all different options for user and calling a different method depending on what the user selects
-	 * TODO Implement a settings method to the menu that allows the user to choose what characters they want and then save the results to a .properties file. Then have the passwdGenerator() method pull its parameters from the .properties file.
 	 * TODO add in multi-language support, look for a translator API
 	 */
 	
@@ -42,12 +41,24 @@ public class passwdGen {
 				
 				UserInputHandler UIHand = new UserInputHandler(input);
 				int length = UIHand.returnLength();
+				
+				//the following is a test of the Password settings class
+				PasswordSettings settings = new PasswordSettings();
 				upperLetters = UIHand.getCharChoice("Upper case letters included? ");
 				lowerLetters = UIHand.getCharChoice("Lower letters included? ");
 				nums = UIHand.getCharChoice("Numbers included? ");
 				symbols = UIHand.getCharChoice("Symbols included? ");
-				
-				String password = generator(length, upperLetters, lowerLetters, nums, symbols);
+				settings.setProperty("upperLetters", String.valueOf(upperLetters));
+				settings.setProperty("lowerLetters", String.valueOf(lowerLetters));
+				settings.setProperty("nums", String.valueOf(nums));
+				settings.setProperty("symbols", String.valueOf(symbols));
+				boolean upperIncluded = settings.getProperty("upperLetters");
+				boolean lowerIncluded = settings.getProperty("lowerLetters");
+				boolean numsIncluded = settings.getProperty("nums");
+				boolean symbolsIncluded = settings.getProperty("symbols");
+				settings.saveProperties();
+				//end of test, this part will be in a settings menu and wont prompt the user every time once implemented properly
+				String password = generator(length, upperIncluded, lowerIncluded, numsIncluded, symbolsIncluded);
 				if (password.isEmpty()) {
 					runagain = UIHand.runAgain();
 				} else {
@@ -71,17 +82,17 @@ public class passwdGen {
 				}
 			}
 	}
-	
+	/*
 	public void menu() {
 		System.out.print("Choose an option by inputting the corresponding number\n1 Password Generator \n2Settings \n3 Useful Information \n4 Instructions for Use \n5 Exit");
 		int menuChoice = input.nextInt();
 		input.nextLine();
-//		switch (menuChoice) {
-//		case 1: 
+		switch (menuChoice) {
+		case 1: 
 			
 		}
 	}
-	
+	*/
 	/*generates the password using the SecureRandom class and the StringBuilder class. Randomly selects an index from the character strings defined up top.
 	 *@param length 	  The desired length of the password
 	 *@param upperLetters Whether to include upper case letters
