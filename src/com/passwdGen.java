@@ -57,7 +57,7 @@ public class passwdGen {
 				boolean numsIncluded = settings.getProperty("nums");
 				boolean symbolsIncluded = settings.getProperty("symbols");
 				settings.saveProperties();
-				//end of test, this part will be in a settings menu and wont prompt the user every time once implemented properly
+				//end of test, this part will be in a settings menu and won't prompt the user every time once implemented properly
 				String password = generator(length, upperIncluded, lowerIncluded, numsIncluded, symbolsIncluded);
 				if (password.isEmpty()) {
 					runagain = UIHand.runAgain();

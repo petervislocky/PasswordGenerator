@@ -1,6 +1,8 @@
 package com;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -8,36 +10,48 @@ import java.util.Properties;
 public class PasswordSettings {
 	
 	private Properties properties;
+	private String configFolderPath;
 	
 	public PasswordSettings() {
 		this.properties = new Properties();
+		this.configFolderPath = System.getProperty("user.home") + File.separator + "PasswordGenConfig"; 
 		loadProperties();
 	}
 	
 	public void loadProperties() {
 		try {
-			FileInputStream fileInput = new FileInputStream(System.getProperty("user.home") + "/passwordSettings.properties");
+			File configFolder = new File(configFolderPath);
+			//creates config folder if it does not exist
+			if (!configFolder.exists()) {
+				configFolder.mkdir();
+			}
+			FileInputStream fileInput = new FileInputStream(configFolderPath + File.separator + "passwordSettings.properties");
 			properties.load(fileInput);
 			fileInput.close();
 		}
-		catch (IOException e) {
-			System.out.println("Error occured with file input. Stack trace: ");
-			e.printStackTrace();
-			
-			//if the properties file doesn't exist or can't be loaded
+		catch (FileNotFoundException e) {
+			System.out.println("No save file detected. Creating settings file to save settings");
 			setDefaultProperties();
+		}
+		catch (IOException e) {
+			System.err.println("IOException occured. Stack trace: ");
+			e.printStackTrace();
 			
 		}
 	}
 	
 	public void saveProperties() {
 		try {
-			FileOutputStream output = new FileOutputStream(System.getProperty("user.home") + "/passwordSettings.properties");
+			File configFolder = new File(configFolderPath);
+			if (!configFolder.exists()) {
+				configFolder.mkdir();
+			}
+			FileOutputStream output = new FileOutputStream(configFolderPath + File.separator + "passwordSettings.properties");
 			properties.store(output, "User Password Settings");
 			output.close();
 		}
 		catch (IOException e) {
-			System.out.println("Error occured with file output. Stack trace: ");
+			System.err.println("IOException occured. Stack trace: ");
 			e.printStackTrace();
 		}
 	}
