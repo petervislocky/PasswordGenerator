@@ -7,4 +7,4 @@ You must have java installed (Version: Java SE17). As of right now you need to c
 Clone git repository.
 In powershell navigate to the directory you installed the project to and run **javac com\PasswordSettings.java com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**. 
 Then run **java com.passwdGenMain**.
-You can also try run it in Eclipse IDE.
+You can also run it in Eclipse IDE.
