@@ -93,7 +93,7 @@ public class passwdGen {
 		
 		UserInputHandler UIHand = new UserInputHandler(input);
 		
-		System.out.print("Choose an option by inputting the corresponding number\n1 Password Generator \n2Settings \n3 Useful Information \n4 Instructions for Use \n5 Exit");
+		System.out.print("Choose an option by inputting the corresponding number\n1 Password Generator \n2Settings \n3 Instructions for Use \n4 Exit");
 		int menuChoice = input.nextInt();
 		input.nextLine();
 		switch (menuChoice) {
@@ -155,10 +155,15 @@ public class passwdGen {
 					} else {
 						System.out.println("Invalid input. Correct input: (y/n)");
 						confSettingsLoop = true;
-						
 					}
 				}
 			}
+			break;
+		case 3:
+			printInstructions();
+			break;
+		case 4:
+			//put exit code here
 		}
 	}
 	
@@ -201,6 +206,27 @@ public class passwdGen {
 		}
 		
 		return generatedPassword.toString();
+	}
+	public void printInstructions() {
+		boolean returnMenuLoop = true;
+		System.out.println("Intructions for use\nTo adjust what type of characters are in the generated password, naviagate to Settings in the menu and adjust there.");
+		System.out.println("Alternatively you can navigate to your home directory and find the .properties file in Home/PasswordGenConfig/passwordSettings.properties");
+		System.out.println("Each time you go to generate a password you will be prompted to enter the desired length, the bounds are 1 and 99");
+		System.out.println("Everytime you generate a password you will be prompted if you want to copy to clipboard, entering y will copy it to the clipboard for you.");
+		System.out.println("The program will give you a message letting you know if the password succesfully copied to the clipboard or not.");
+		System.out.println("The first time running this program a directory will be automatically created to store the .properties file for the settings, the program will alert you when it does so");
+		while (returnMenuLoop) {
+			System.out.print(" Press Enter to return to menu ");
+			String returnMenu = input.nextLine();
+			if (returnMenu.isEmpty()) {
+				System.out.println("Returning to menu");
+				menu();
+				break;
+			} else {
+				System.out.println("You pressed a key other than enter.");
+				continue;
+			}
+		}
 	}
 }
 
