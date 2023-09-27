@@ -11,6 +11,7 @@ public class passwdGen {
 	private final String symbolsKey = "!@#$%^&*?";
 	
 	private Scanner input;
+	private PasswordSettings settings = new PasswordSettings();
 	
 	/* 
 	 * Author: 
@@ -22,7 +23,6 @@ public class passwdGen {
 	 * TODO create a menu method listing all different options for user and calling a different method depending on what the user selects
 	 * TODO add in multi-language support, look for a translator API
 	 */
-	private PasswordSettings settings = new PasswordSettings();
 	
 	public passwdGen(Scanner scanner) {
 		this.input = scanner;
