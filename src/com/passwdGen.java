@@ -170,7 +170,7 @@ public class passwdGen {
 			}
 		}
 		catch (IllegalArgumentException e) {
-			System.out.println("Invalid input, must select desired characters. ");
+			System.out.printf("Invalid input, must select desired characters.\nError Code: %s in method generator()\n", e);
 		}
 		
 		return generatedPassword.toString();
