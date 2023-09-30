@@ -7,8 +7,7 @@ You must have java installed (Version: Java SE17). As of right now you can eithe
 *To compile from source*  
 1. Clone git repository.  
 2. In powershell navigate to the directory you installed the project to and run **javac com\PasswordSettings.java com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**.   
-3. Then run **java com.passwdGenMain**.  
-*To run the pre-compiled .class files*
+3. Then run **java com.passwdGenMain**.  *To run the pre-compiled .class files*
 1. In powershell navigate within the project file to the bin directory **PasswordGenerator\bin**
 2. Then simply run **java com.passwdGenMain**
 *Alternatively you can also run inside Eclipse IDE*
