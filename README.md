@@ -3,8 +3,9 @@ This is a simple password generator I am writing in java to practice coding, als
 passwords down somewhere or adding them to your password manager, because your passwords that are generated are not saved anywhere.
 
 To run,
-You must have java installed (Version: Java SE17). As of right now you need to compile the code from source yourself.
+You must have java installed (Version: Java SE17). As of right now you can either compile the code from source yourself by following the steps that follow or run the pre-compiled .class files in the bin directory.\n
+**To compile from source**\n
 Clone git repository.
 In powershell navigate to the directory you installed the project to and run **javac com\PasswordSettings.java com\UserInputHandler.java com\passwdGen.java com\passwdGenMain.java**. 
 Then run **java com.passwdGenMain**.
-You can also run it in Eclipse IDE.
+
