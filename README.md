@@ -11,5 +11,6 @@ You must have java installed (Version: Java SE17 or newer is what I validated it
 
 *To run the pre-compiled .class files*
 1. In powershell navigate within the project file to the bin directory **PasswordGenerator\bin**
-2. Then simply run **java com.passwdGenMain**  
+2. Then simply run **java com.passwdGenMain**
+
 *Alternatively you can also run inside Eclipse IDE*
