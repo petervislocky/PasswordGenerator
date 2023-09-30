@@ -1,6 +1,7 @@
 package com;
 
 import java.security.SecureRandom;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class passwdGen {
@@ -40,10 +41,20 @@ public class passwdGen {
 		while (menuLoop) {
 			boolean genLoop = true;
 			boolean settingsLoop = true;
+			boolean menuInputLoop = true;
+			int menuChoice = 0;
 			UserInputHandler UIHand = new UserInputHandler(input);
-			System.out.println("Choose an option by inputting the corresponding number\n1 Password Generator \n2 Settings \n3 Instructions for Use \n4 Exit");
-			int menuChoice = input.nextInt();
-			input.nextLine();
+			while (menuInputLoop) {
+				try {
+					System.out.println("Choose an option by inputting the corresponding number\n1 Password Generator \n2 Settings \n3 Instructions for Use \n4 Exit");
+					menuChoice = input.nextInt();
+					menuInputLoop = false;
+				}
+				catch (InputMismatchException e) {
+					System.out.println("Invalid menu choice. Try again.");
+				}
+				input.nextLine();
+			}
 			switch (menuChoice) {
 			case 1:
 				while (genLoop) {
