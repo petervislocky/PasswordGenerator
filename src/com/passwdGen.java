@@ -96,6 +96,10 @@ public class passwdGen {
 					lowerLetters = UIHand.getCharChoice("Lower letters included? ");
 					nums = UIHand.getCharChoice("Numbers included? ");
 					symbols = UIHand.getCharChoice("Symbols included? ");
+					if (!upperLetters && !lowerLetters && !nums && !symbols) {
+						System.out.println("At least one set of characters must be included. Try again.");
+						continue;
+					}
 					settings.setProperty("upperLetters", String.valueOf(upperLetters));
 					settings.setProperty("lowerLetters", String.valueOf(lowerLetters));
 					settings.setProperty("nums", String.valueOf(nums));
