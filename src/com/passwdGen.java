@@ -184,7 +184,7 @@ public class passwdGen {
 		System.out.println("*The program will give you a message letting you know if the password succesfully copied to the clipboard or not.");
 		System.out.println("*The first time running this program a directory will be automatically created to store the .properties file for the settings, the program will alert you when it does so");
 		System.out.println("*Settings DO save so, if you set them and exit the program they will still be applied next time you run the program");
-		System.out.println("*Valid inputs should always be listen when you are prompted, they will always either be a number (sometimes within a certain range) or an option of y or n");
+		System.out.println("*Valid inputs should always be listed when you are prompted, they will always either be a number (sometimes within a certain range) or an option of y or n");
 		while (returnMenuLoop) {
 			System.out.print("Press Enter to return to menu ");
 			String returnMenu = input.nextLine();
