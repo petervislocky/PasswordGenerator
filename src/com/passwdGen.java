@@ -178,12 +178,13 @@ public class passwdGen {
 	public void printInstructions() {
 		boolean returnMenuLoop = true;
 		System.out.println("\u001B[92mIntructions for use\u001B[0m\n*To adjust what type of characters are in the generated password, naviagate to Settings in the menu and adjust there.");
-		System.out.println("*Alternatively you can navigate to your home directory and find the .properties file in Home/PasswordGenConfig/passwordSettings.properties");
+		System.out.println("*Alternatively you can navigate to your home directory and find the .properties file in Home/PasswordGenConfig/passwordSettings.properties, and adjust the values there.");
 		System.out.println("*Each time you go to generate a password you will be prompted to enter the desired length, the bounds are 1 and 99");
 		System.out.println("*Everytime you generate a password you will be prompted if you want to copy to clipboard, entering y will copy it to the clipboard for you.");
 		System.out.println("*The program will give you a message letting you know if the password succesfully copied to the clipboard or not.");
 		System.out.println("*The first time running this program a directory will be automatically created to store the .properties file for the settings, the program will alert you when it does so");
 		System.out.println("*Settings DO save so, if you set them and exit the program they will still be applied next time you run the program");
+		System.out.println("*Valid inputs should always be listen when you are prompted, they will always either be a number (sometimes within a certain range) or an option of y or n");
 		while (returnMenuLoop) {
 			System.out.print("Press Enter to return to menu ");
 			String returnMenu = input.nextLine();
