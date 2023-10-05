@@ -46,7 +46,7 @@ public class passwdGen {
 			UserInputHandler UIHand = new UserInputHandler(input);
 			while (menuInputLoop) {
 				try {
-					System.out.println("Choose an option by inputting the corresponding number\n1 Password Generator \n2 Settings \n3 Instructions for Use \n4 Exit");
+					System.out.println("Choose an option by inputting the corresponding number (1-4)\n1 Password Generator \n2 Settings \n3 Instructions for Use \n4 Exit");
 					menuChoice = input.nextInt();
 					menuInputLoop = false;
 				}
@@ -57,6 +57,7 @@ public class passwdGen {
 			}
 			switch (menuChoice) {
 			case 1:
+				System.out.println("\u001B[92mPassword Generator\u001B[0m");
 				while (genLoop) {
 					boolean copyToClip = true;
 					int length = UIHand.returnLength();
@@ -89,7 +90,8 @@ public class passwdGen {
 				}
 				break;
 			case 2:
-				System.out.println("Settings\nChoose which characters to include, once you are done it will automatically save.");
+				System.out.println("\u001B[92mSettings\u001B[0m\nChoose which characters to include, once you are done it will automatically save.");
+				displayCurrentSettings();
 				while(settingsLoop) {
 					boolean confSettingsLoop = true;
 					upperLetters = UIHand.getCharChoice("Upper case letters included? ");
@@ -178,7 +180,7 @@ public class passwdGen {
 	
 	public void printInstructions() {
 		boolean returnMenuLoop = true;
-		System.out.println("Intructions for use\n*To adjust what type of characters are in the generated password, naviagate to Settings in the menu and adjust there.");
+		System.out.println("\u001B[92mIntructions for use\u001B[0m\n*To adjust what type of characters are in the generated password, naviagate to Settings in the menu and adjust there.");
 		System.out.println("*Alternatively you can navigate to your home directory and find the .properties file in Home/PasswordGenConfig/passwordSettings.properties");
 		System.out.println("*Each time you go to generate a password you will be prompted to enter the desired length, the bounds are 1 and 99");
 		System.out.println("*Everytime you generate a password you will be prompted if you want to copy to clipboard, entering y will copy it to the clipboard for you.");
@@ -196,6 +198,14 @@ public class passwdGen {
 				continue;
 			}
 		}
+	}
+	public void displayCurrentSettings() {
+		boolean displayCurrentUpperCase = settings.getProperty("upperLetters");
+		boolean displayCurrentLowerCase = settings.getProperty("lowerLetters");
+		boolean displayCurrentNums = settings.getProperty("nums");
+		boolean displayCurrentSymbols = settings.getProperty("symbols");
+		System.out.println("Current Settings:");
+		System.out.printf("*Uppercase letters included = %b%n*Lowercase letters included = %b%n*Numbers included = %b%n*Symbols included %b%n", displayCurrentUpperCase, displayCurrentLowerCase, displayCurrentNums, displayCurrentSymbols);
 	}
 }
 
