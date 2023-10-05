@@ -11,10 +11,7 @@ public class passwdGen {
 	 * Peter Vislocky
 	 */
 	
-	/*
-	 * The main class of the program, handles all aspects of generating the password. menu() method handles the main user interaction of the program
-	 * TODO add in multi-language support, look for a translator API
-	 */
+	//The main class of the program, handles all aspects of generating the password. menu() method handles the main user interaction of the program
 	
 	private final String upperLettersKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private final String lowerLettersKey = "abcdefghijklmnopqrstuvwxyz";
