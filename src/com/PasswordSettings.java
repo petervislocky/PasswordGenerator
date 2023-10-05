@@ -30,6 +30,9 @@ public class PasswordSettings {
 			fileInput.close();
 		}
 		catch (FileNotFoundException e) {
+			/*this usually won't even occur but in some rare instances, if the save file doesn't exist it will throw this exception before creating one with default values
+			 * it doesn't effect the way the progam runs either way though.
+			 */
 			System.out.println("No save file detected. Creating settings file to save settings");
 			setDefaultProperties();
 		}
